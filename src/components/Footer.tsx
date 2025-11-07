@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { Instagram, Youtube, Twitter, Mail } from "lucide-react";
 
 export function Footer() {
@@ -12,7 +12,7 @@ export function Footer() {
   const faqs = [
     {
       question: "Siapa yang dapat mendaftar?",
-      answer: "Siapa saja yang berusia 18 tahun ke atas dan memiliki minat dalam stand-up comedy.",
+      answer: "Siapa saja yang berusia 17-35 tahun dan memiliki minat dalam stand-up comedy.",
     },
     {
       question: "Apakah ada biaya pendaftaran?",

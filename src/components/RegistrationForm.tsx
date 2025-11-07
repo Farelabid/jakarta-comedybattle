@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { Send, Check, Mic2 } from "lucide-react";
 
 export function RegistrationForm() {

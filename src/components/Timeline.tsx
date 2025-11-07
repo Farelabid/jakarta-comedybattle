@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 export function Timeline() {
   const timelineSteps = [
@@ -6,35 +6,35 @@ export function Timeline() {
       number: "01",
       title: "Audisi Online",
       description: "Kirim video stand-up comedy terbaik kamu via Google Drive. Tunjukkan bakat dan keunikan materi kamu.",
-      date: "Jan — Feb 2025",
+      date: "Nov 2025",
       color: "#ff6b35"
     },
     {
       number: "02",
       title: "40 Peserta Terbaik",
       description: "Pengumuman peserta yang lolos ke tahap selanjutnya berdasarkan penilaian dari juri profesional.",
-      date: "Maret 2025",
+      date: "Awal Des 2025",
       color: "#ffd93d"
     },
     {
       number: "03",
       title: "20 Semifinalis",
       description: "Tampil live di venue Jakarta dengan juri profesional dan penonton langsung.",
-      date: "April 2025",
+      date: "Des 2025",
       color: "#a855f7"
     },
     {
       number: "04",
       title: "10 Finalis",
       description: "Battle sengit menuju Grand Final. Setiap penampilan akan dinilai dengan ketat.",
-      date: "Mei 2025",
+      date: "Des 2025",
       color: "#ff6b35"
     },
     {
       number: "05",
       title: "Grand Final",
       description: "Penentuan Juara 1, 2, 3 dan Juara Favorit Netizen di Balai Sarbini.",
-      date: "Juni 2025",
+      date: "Des 2025",
       color: "#ffd93d"
     },
   ];

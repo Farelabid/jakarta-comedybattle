@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { ArrowDown, Sparkles, Zap } from "lucide-react";
 import { Mic2, Laugh } from "lucide-react";
 
