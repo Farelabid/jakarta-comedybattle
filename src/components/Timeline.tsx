@@ -1,36 +1,31 @@
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 export function Timeline() {
+  // Data timeline diperbarui sesuai dengan PDF (Page 6 & 7)
   const timelineSteps = [
     {
       number: "01",
-      title: "Audisi Online",
-      description: "Kirim video stand-up comedy terbaik kamu via Google Drive. Tunjukkan bakat dan keunikan materi kamu.",
-      date: "Jan — Feb 2025",
+      title: "Sosialisasi",
+      description: "Promosi acara, tata cara daftar & audisi. Persiapkan materi terbaikmu!",
+      date: "Nov 2025",
     },
     {
       number: "02",
-      title: "40 Peserta Terbaik",
-      description: "Pengumuman peserta yang lolos ke tahap selanjutnya berdasarkan penilaian dari juri profesional.",
-      date: "Maret 2025",
+      title: "Audisi (Pra-Event)",
+      description: "Seleksi awal online melalui pengiriman video. 40 video peserta terbaik akan diumumkan.",
+      date: "Akhir Nov 2025",
     },
     {
       number: "03",
-      title: "20 Semifinalis",
-      description: "Tampil live di venue Jakarta dengan juri profesional dan penonton langsung.",
-      date: "April 2025",
+      title: "Semi Final",
+      description: "Seleksi 20 besar peserta untuk tampil live dan memperebutkan 10 tempat di final.",
+      date: "Des 2025",
     },
     {
       number: "04",
-      title: "10 Finalis",
-      description: "Battle sengit menuju Grand Final. Setiap penampilan akan dinilai dengan ketat.",
-      date: "Mei 2025",
-    },
-    {
-      number: "05",
       title: "Grand Final",
-      description: "Penentuan Juara 1, 2, 3 dan Juara Favorit Netizen di Balai Sarbini.",
-      date: "Juni 2025",
+      description: "Kompetisi utama & awarding. Penentuan Juara 1, 2, 3 dan Juara Favorit Netizen.",
+      date: "Des 2025",
     },
   ];
 
@@ -129,7 +124,7 @@ export function Timeline() {
         >
           <div className="mb-6 md:mb-0">
             <div className="font-display text-3xl text-white mb-2">Siap Memulai Perjalanan?</div>
-            <div className="text-gray-400">5 tahap menuju puncak kejayaan comedy Jakarta</div>
+            <div className="text-gray-400">4 tahap menuju puncak kejayaan comedy Jakarta</div>
           </div>
           <button
             onClick={() => {

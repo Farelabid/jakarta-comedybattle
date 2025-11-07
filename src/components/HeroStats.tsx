@@ -1,6 +1,14 @@
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 export function HeroStats() {
+  // Data statistik ini sesuai dengan PDF Page 7 (Flow Event)
+  const stats = [
+    { number: "40", label: "Peserta Terbaik" },
+    { number: "20", label: "Semifinalis" },
+    { number: "10", label: "Finalis" },
+    { number: "01", label: "Juara Utama" }, // Diperjelas dari "01 Juara"
+  ];
+
   return (
     <section className="relative bg-[#0a0e27] py-16 md:py-20 border-t border-[#ff6b35]/20">
       <div className="max-w-[1200px] mx-auto px-6">
@@ -11,12 +19,7 @@ export function HeroStats() {
           transition={{ duration: 0.8 }}
           className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8"
         >
-          {[
-            { number: "40", label: "Peserta Terbaik" },
-            { number: "20", label: "Semifinalis" },
-            { number: "10", label: "Finalis" },
-            { number: "01", label: "Juara" },
-          ].map((stat, index) => (
+          {stats.map((stat, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}

@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { Instagram, Youtube, Twitter, Mail } from "lucide-react";
 
 export function Footer() {
@@ -9,10 +9,11 @@ export function Footer() {
     { icon: Mail, label: "Email", url: "mailto:info@jxb.jakarta.go.id" },
   ];
 
+  // Konten FAQ disesuaikan agar lebih sinkron dengan PDF
   const faqs = [
     {
       question: "Siapa yang dapat mendaftar?",
-      answer: "Siapa saja yang berusia 18 tahun ke atas dan memiliki minat dalam stand-up comedy.",
+      answer: "Kompetisi ini terbuka untuk WNI, Gen Z & Milenial (17-35 tahun), berdomisili di Jabodetabek.",
     },
     {
       question: "Apakah ada biaya pendaftaran?",
@@ -20,11 +21,11 @@ export function Footer() {
     },
     {
       question: "Bagaimana proses seleksi?",
-      answer: "Video Anda akan dinilai oleh juri profesional. 40 peserta terbaik akan diumumkan.",
+      answer: "Seleksi awal melalui video online. 40 video terbaik akan diumumkan untuk lanjut ke 20 besar semifinalis live.",
     },
     {
       question: "Apa hadiah untuk pemenang?",
-      answer: "Piala Gubernur & Wakil Gubernur DKI Jakarta, uang tunai, dan kesempatan berkarir.",
+      answer: "Pemenang akan memperebutkan Piala Gubernur & Wakil Gubernur DKI Jakarta, serta hadiah lainnya.",
     },
   ];
 

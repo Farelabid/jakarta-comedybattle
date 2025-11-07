@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 
 export function Hero() {
@@ -123,18 +123,6 @@ export function Hero() {
           </button>
         </motion.div>
       </div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        animate={{ y: [0, 12, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2"
-      >
-        <div className="flex flex-col items-center gap-3">
-          <div className="h-16 w-px bg-gradient-to-b from-transparent via-[#ff6b35] to-transparent" />
-          <ArrowDown className="text-[#ff6b35]" size={24} />
-        </div>
-      </motion.div>
     </section>
   );
 }

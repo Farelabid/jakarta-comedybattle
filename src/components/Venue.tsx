@@ -1,36 +1,37 @@
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { MapPin, ExternalLink } from "lucide-react";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 export function Venue() {
+  // Data venue disesuaikan dengan PDF Page 12
   const venues = [
     {
       name: "Balai Sarbini",
       location: "Plaza Semanggi, Jakarta Selatan",
-      description: "Venue prestisius untuk Grand Final dengan kapasitas besar dan fasilitas premium",
+      description: "Venue prestisius untuk Grand Final dengan kapasitas besar dan fasilitas premium.",
       image: "https://images.unsplash.com/photo-1639408396873-4a284924bc3c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb25jZXJ0JTIwaGFsbCUyMHN0YWdlfGVufDF8fHx8MTc2MjQ4NzYzMXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
       mapsUrl: "https://maps.google.com/?q=Balai+Sarbini+Jakarta",
     },
     {
       name: "Taman Ismail Marzuki",
       location: "Cikini, Jakarta Pusat",
-      description: "Pusat kesenian legendaris Jakarta dengan atmosfer artistik yang kental",
+      description: "Pusat kesenian legendaris Jakarta dengan atmosfer artistik yang kental.",
       image: "https://images.unsplash.com/photo-1722321974501-059dff03e970?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx0aGVhdGVyJTIwYXVkaXRvcml1bSUyMGxpZ2h0c3xlbnwxfHx8fDE3NjI0ODc2MzF8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
       mapsUrl: "https://maps.google.com/?q=Taman+Ismail+Marzuki+Jakarta",
     },
     {
-      name: "Gedung Kesenian Jakarta",
-      location: "Sawah Besar, Jakarta Pusat",
-      description: "Bangunan bersejarah dengan akustik sempurna untuk pertunjukan comedy",
-      image: "https://images.unsplash.com/photo-1759477274012-263d469f0e16?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB2ZW51ZSUyMHN0YWdlfGVufDF8fHx8MTc2MjQ4NzYzMnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      mapsUrl: "https://maps.google.com/?q=Gedung+Kesenian+Jakarta",
+      name: "Post Bloc",
+      location: "Sawah Besar, Jakarta Pusat", // Lokasi di PDF adalah Post Bloc, bukan Kemang. Dan urutannya ke-3
+      description: "Ruang kreatif publik yang diadaptasi dari gedung bersejarah.",
+      image: "https://images.unsplash.com/photo-1680422252857-3b13987bd7b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcnQlMjBjZW50ZXIlMjBidWlsZGluZ3xlbnwxfHx8fDE3NjI0ODc2MzJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      mapsUrl: "https://maps.google.com/?q=Post+Bloc+Jakarta",
     },
     {
-      name: "Post Bloc",
-      location: "Kemang, Jakarta Selatan",
-      description: "Venue modern dan trendy di jantung kawasan kreatif Jakarta",
-      image: "https://images.unsplash.com/photo-1680422252857-3b13987bd7b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhcnQlMjBjZW50ZXIlMjBidWlsZGluZ3xlbnwxfHx8fDE3NjI0ODc2MzJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-      mapsUrl: "https://maps.google.com/?q=Post+Bloc+Kemang+Jakarta",
+      name: "Gedung Kesenian Jakarta",
+      location: "Sawah Besar, Jakarta Pusat",
+      description: "Bangunan bersejarah dengan akustik sempurna untuk pertunjukan.",
+      image: "https://images.unsplash.com/photo-1759477274012-263d469f0e16?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB2ZW51ZSUyMHN0YWdlfGVufDF8fHx8MTc2MjQ4NzYzMnww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+      mapsUrl: "https://maps.google.com/?q=Gedung+Kesenian+Jakarta",
     },
   ];
 
@@ -62,7 +63,7 @@ export function Venue() {
               VENUE
             </h2>
             <p className="text-gray-400 max-w-md">
-              Empat venue prestisius di Jakarta yang akan menjadi saksi perjalanan para peserta
+              Empat venue prestisius di Jakarta yang akan menjadi saksi perjalanan para peserta.
             </p>
           </div>
         </motion.div>
