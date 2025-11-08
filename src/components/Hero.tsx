@@ -5,16 +5,8 @@ import { Mic2, Laugh } from "lucide-react";
 export function Hero() {
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-[#0a0e27] via-[#1a1438] to-[#0a0e27] overflow-hidden flex items-center justify-center">
-      {/* Animated Grid Background */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `
-            linear-gradient(90deg, #ff6b35 1px, transparent 1px),
-            linear-gradient(180deg, #ff6b35 1px, transparent 1px)
-          `,
-          backgroundSize: '50px 50px'
-        }} />
-      </div>
+      {/* Animated Grid Background - REMOVED */}
+      <div className="absolute inset-0" />
 
       {/* Colorful Blob Backgrounds */}
       <motion.div

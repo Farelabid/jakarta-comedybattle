@@ -91,7 +91,7 @@ export function About() {
               <div className="space-y-4 sm:space-y-6">
                 <p className="text-gray-300 text-base sm:text-lg leading-relaxed">
                   Jakarta Comedy Battle 2025 adalah ajang kompetisi stand-up comedy terbesar di Jakarta 
-                  yang memberikan kesempatan bagi para pelawak berbakat untuk menunjukkan kemampuan mereka 
+                  yang memberikan kesempatan bagi para calon komika berbakat untuk menunjukkan kemampuan mereka 
                   di panggung profesional.
                 </p>
                 
