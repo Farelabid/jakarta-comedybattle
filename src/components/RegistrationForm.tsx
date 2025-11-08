@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Send, Check, Mic2, Lightbulb } from "lucide-react";
+import { Send, Check, Mic2, Lightbulb, Loader2 } from "lucide-react";
+import { supabase } from "../supabase";
 
 export function RegistrationForm() {
   const [formData, setFormData] = useState({
@@ -13,7 +14,9 @@ export function RegistrationForm() {
     bio: "",
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
@@ -22,23 +25,45 @@ export function RegistrationForm() {
     });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form Data:", formData);
-    setIsSubmitted(true);
-    
-    setTimeout(() => {
-      setFormData({
-        namaLengkap: "",
-        namaPanggung: "",
-        email: "",
-        nomorHP: "",
-        kota: "",
-        linkVideo: "",
-        bio: "",
-      });
-      setIsSubmitted(false);
-    }, 3000);
+    setIsSubmitting(true);
+    setErrorMessage("");
+
+    try {
+      // Mapping state React ke nama kolom di Supabase (snake_case recommended di SQL)
+      const { error } = await supabase
+        .from('participants') // Pastikan nama tabel sama persis
+        .insert([
+          {
+            nama_lengkap: formData.namaLengkap,
+            nama_panggung: formData.namaPanggung,
+            email: formData.email,
+            nomor_hp: formData.nomorHP,
+            kota: formData.kota,
+            link_video: formData.linkVideo,
+            bio: formData.bio,
+          },
+        ]);
+
+      if (error) throw error;
+
+      // Jika sukses
+      setIsSubmitted(true);
+      setTimeout(() => {
+         // Reset form
+         setFormData({
+            namaLengkap: "", namaPanggung: "", email: "", nomorHP: "", kota: "", linkVideo: "", bio: "",
+          });
+          setIsSubmitted(false);
+      }, 3000);
+
+    } catch (error: any) {
+      console.error("Error submit:", error.message);
+      setErrorMessage("Gagal mengirim data. Silakan coba lagi.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -266,19 +291,32 @@ export function RegistrationForm() {
 
                   {/* Submit Button */}
                   <div className="pt-8">
-                    <button
-                      type="submit"
-                      className="group relative w-full bg-[#ff6b35] text-white px-8 py-5 flex items-center justify-center gap-3 overflow-hidden"
-                      style={{ clipPath: 'polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%)' }}
-                    >
-                      <span className="relative z-10 flex items-center gap-3 text-sm tracking-[0.2em] uppercase">
+                {errorMessage && (
+                  <p className="text-red-500 mb-4 text-sm">{errorMessage}</p>
+                )}
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="group relative w-full bg-[#ff6b35] text-white px-8 py-5 flex items-center justify-center gap-3 overflow-hidden disabled:opacity-70"
+                  style={{ clipPath: 'polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 0 100%)' }}
+                >
+                  <span className="relative z-10 flex items-center gap-3 text-sm tracking-[0.2em] uppercase">
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="animate-spin" size={20} />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
                         <span>Kirim Pendaftaran</span>
                         <Send size={18} />
-                      </span>
-                      <div className="absolute inset-0 bg-[#ff8c42] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
-                    </button>
-                  </div>
-                </form>
+                      </>
+                    )}
+                  </span>
+                  <div className="absolute inset-0 bg-[#ff8c42] transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
+                </button>
+              </div>
+            </form>
               )}
             </div>
           </div>
