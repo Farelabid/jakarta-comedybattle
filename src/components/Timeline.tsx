@@ -5,37 +5,38 @@ export function Timeline() {
     {
       number: "01",
       title: "Audisi Online",
-      description: "Kirim video stand-up comedy terbaik kamu via Google Drive. Tunjukkan bakat dan keunikan materi kamu.",
-      date: "Nov 2025",
+      description: "Kirim video stand-up comedy terbaik kamu via Google Drive dengan tema 'Betah Tinggal di Jakarta'. Tunjukkan bakat dan keunikan materi kamu.",
+      date: "November 2025",
       color: "#ff6b35"
     },
     {
       number: "02",
       title: "40 Peserta Terbaik",
       description: "Pengumuman peserta yang lolos ke tahap selanjutnya berdasarkan penilaian dari juri profesional.",
-      date: "Awal Des 2025",
+      date: "Awal Desember 2025",
       color: "#ffd93d"
     },
     {
       number: "03",
       title: "20 Semifinalis",
       description: "Tampil live di venue Jakarta dengan juri profesional dan penonton langsung.",
-      date: "Des 2025",
+      date: "Desember 2025",
       color: "#a855f7"
     },
     {
       number: "04",
       title: "10 Finalis",
       description: "Battle sengit menuju Grand Final. Setiap penampilan akan dinilai dengan ketat.",
-      date: "Des 2025",
+      date: "Desember 2025",
       color: "#ff6b35"
     },
     {
       number: "05",
       title: "Grand Final",
-      description: "Penentuan Juara 1, 2, 3 dan Juara Favorit Netizen di Balai Sarbini.",
-      date: "Des 2025",
-      color: "#ffd93d"
+      description: "Penentuan Juara 1, 2, 3 dan Juara Favorit Netizen di Taman Ismail Marzuki dengan tema 'Jakarta: Panggung Segala Cerita'.",
+      date: "Jumat, 19 Desember 2025",
+      color: "#ffd93d",
+      isHighlight: true
     },
   ];
 
@@ -89,7 +90,9 @@ export function Timeline() {
                 className="flex-shrink-0"
               >
                 <div 
-                  className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full flex items-center justify-center border-4 sm:border-6 md:border-8"
+                  className={`w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full flex items-center justify-center border-4 sm:border-6 md:border-8 ${
+                    step.isHighlight ? 'animate-pulse' : ''
+                  }`}
                   style={{ 
                     borderColor: step.color,
                     background: `linear-gradient(135deg, ${step.color}20, transparent)`
@@ -110,13 +113,20 @@ export function Timeline() {
                   className="absolute -inset-1 sm:-inset-2 opacity-0 group-hover:opacity-50 blur-xl transition-all duration-300"
                   style={{ background: `linear-gradient(to right, ${step.color}, #ffd93d)` }}
                 />
-                <div className="relative bg-[#1a1438] border-2 sm:border-4 p-4 sm:p-6 md:p-8" style={{ borderColor: step.color }}>
+                <div 
+                  className={`relative bg-[#1a1438] border-2 sm:border-4 p-4 sm:p-6 md:p-8 ${
+                    step.isHighlight ? 'border-[#ffd93d] shadow-2xl shadow-[#ffd93d]/20' : ''
+                  }`}
+                  style={{ borderColor: step.isHighlight ? '#ffd93d' : step.color }}
+                >
                   <div className="flex flex-col sm:flex-row items-start justify-between gap-3 sm:gap-4 mb-3 sm:mb-4">
                     <h3 className="font-display text-2xl sm:text-3xl md:text-4xl text-white tracking-tight">
                       {step.title}
                     </h3>
                     <div 
-                      className="px-3 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm tracking-wider whitespace-nowrap"
+                      className={`px-3 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm tracking-wider whitespace-nowrap ${
+                        step.isHighlight ? 'font-bold' : ''
+                      }`}
                       style={{ backgroundColor: `${step.color}20`, color: step.color }}
                     >
                       {step.date}
@@ -125,6 +135,19 @@ export function Timeline() {
                   <p className="text-gray-300 text-sm sm:text-base md:text-lg leading-relaxed">
                     {step.description}
                   </p>
+                  
+                  {step.isHighlight && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      className="mt-4 pt-4 border-t border-[#ffd93d]/20"
+                    >
+                      <div className="flex items-center gap-2 text-[#ffd93d] text-sm">
+                        <span className="inline-block w-2 h-2 bg-[#ffd93d] rounded-full animate-pulse"></span>
+                        <span className="font-medium">Lokasi: Taman Ismail Marzuki, Cikini, Jakarta Pusat</span>
+                      </div>
+                    </motion.div>
+                  )}
                 </div>
               </motion.div>
             </motion.div>

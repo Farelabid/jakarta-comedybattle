@@ -1,49 +1,59 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Sparkles, Zap } from "lucide-react";
 import { Mic2, Laugh } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export function Hero() {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
+
   return (
     <section className="relative min-h-screen bg-gradient-to-br from-[#0a0e27] via-[#1a1438] to-[#0a0e27] overflow-hidden flex items-center justify-center">
       {/* Animated Grid Background - REMOVED */}
       <div className="absolute inset-0" />
 
-      {/* Colorful Blob Backgrounds */}
+      {/* Colorful Blob Backgrounds - Optimized for mobile */}
       <motion.div
-        animate={{
+        animate={isMobile ? {} : {
           scale: [1, 1.2, 1],
           rotate: [0, 90, 0],
         }}
-        transition={{
+        transition={isMobile ? {} : {
           duration: 20,
           repeat: Infinity,
           ease: "linear"
         }}
-        className="absolute top-0 -left-20 w-[600px] h-[600px] bg-[#ff6b35] rounded-full blur-[150px] opacity-20"
+        className="absolute top-0 -left-20 w-[600px] h-[600px] bg-[#ff6b35] rounded-full opacity-20"
+        style={{ filter: isMobile ? 'blur(80px)' : 'blur(150px)' }}
       />
       <motion.div
-        animate={{
+        animate={isMobile ? {} : {
           scale: [1, 1.3, 1],
           rotate: [0, -90, 0],
         }}
-        transition={{
+        transition={isMobile ? {} : {
           duration: 25,
           repeat: Infinity,
           ease: "linear"
         }}
-        className="absolute bottom-0 -right-20 w-[600px] h-[600px] bg-[#ffd93d] rounded-full blur-[150px] opacity-20"
+        className="absolute bottom-0 -right-20 w-[600px] h-[600px] bg-[#ffd93d] rounded-full opacity-20"
+        style={{ filter: isMobile ? 'blur(80px)' : 'blur(150px)' }}
       />
       <motion.div
-        animate={{
+        animate={isMobile ? {} : {
           scale: [1.2, 1, 1.2],
           x: [0, 100, 0],
         }}
-        transition={{
+        transition={isMobile ? {} : {
           duration: 15,
           repeat: Infinity,
           ease: "easeInOut"
         }}
-        className="absolute top-1/2 left-1/2 w-[500px] h-[500px] bg-[#a855f7] rounded-full blur-[150px] opacity-15"
+        className="absolute top-1/2 left-1/2 w-[500px] h-[500px] bg-[#a855f7] rounded-full opacity-15"
+        style={{ filter: isMobile ? 'blur(80px)' : 'blur(150px)' }}
       />
 
       {/* Main Content */}
@@ -125,11 +135,30 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="mb-12 max-w-3xl mx-auto px-4"
           >
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-300 leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-300 leading-relaxed mb-6">
               Kompetisi Stand-Up Comedy Terbesar di Jakarta
               <br />
               <span className="text-[#ffd93d]">Piala Gubernur & Wakil Gubernur DKI Jakarta</span>
             </p>
+            
+            {/* Tema Kompetisi */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
+              <motion.div
+                whileHover={{ rotate: 2, scale: 1.05 }}
+                className="inline-block px-6 py-3 bg-[#1a1438] border-2 border-[#ff6b35] transform -rotate-1"
+              >
+                <div className="text-xs text-[#ff6b35] tracking-wider uppercase mb-1">Tema Audisi</div>
+                <div className="text-base sm:text-lg text-white font-medium">"Betah Tinggal di Jakarta"</div>
+              </motion.div>
+              
+              <motion.div
+                whileHover={{ rotate: -2, scale: 1.05 }}
+                className="inline-block px-6 py-3 bg-[#1a1438] border-2 border-[#ffd93d] transform rotate-1"
+              >
+                <div className="text-xs text-[#ffd93d] tracking-wider uppercase mb-1">Tema Final</div>
+                <div className="text-base sm:text-lg text-white font-medium">"Jakarta: Panggung Segala Cerita"</div>
+              </motion.div>
+            </div>
           </motion.div>
 
           {/* CTA Buttons */}

@@ -1,30 +1,30 @@
 import { motion } from "framer-motion";
-import { Mic2, Users, Trophy, Star } from "lucide-react";
+import { Mic2, Users, Trophy, Star, Calendar, MapPin } from "lucide-react";
 
 export function About() {
   const features = [
     {
       icon: Mic2,
       title: "Panggung Prestisius",
-      description: "Tampil di venue-venue terbaik Jakarta dengan fasilitas profesional",
+      description: "Tampil di venue terbaik Jakarta dengan fasilitas profesional, di Taman Ismail Marzuki untuk Grand Final",
       color: "#ff6b35"
     },
     {
       icon: Trophy,
       title: "Piala Bergengsi",
-      description: "Memperebutkan Piala Gubernur & Wakil Gubernur DKI Jakarta",
+      description: "Memperebutkan Piala Gubernur & Wakil Gubernur DKI Jakarta dengan hadiah menarik",
       color: "#ffd93d"
     },
     {
       icon: Users,
       title: "Networking Luas",
-      description: "Bertemu dengan comedian profesional dan komunitas comedy",
+      description: "Bertemu dengan comedian profesional dan komunitas comedy Jakarta",
       color: "#a855f7"
     },
     {
       icon: Star,
       title: "Eksposur Media",
-      description: "Promosi di seluruh platform Jakarta Experience Board",
+      description: "Promosi di seluruh platform Jakarta Experience Board dan media partner",
       color: "#ff6b35"
     },
   ];
@@ -94,6 +94,42 @@ export function About() {
                   yang memberikan kesempatan bagi para calon komika berbakat untuk menunjukkan kemampuan mereka 
                   di panggung profesional.
                 </p>
+
+                {/* Tema Section */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="space-y-3"
+                >
+                  <div className="border-l-4 border-[#ff6b35] pl-4 sm:pl-6 bg-[#ff6b35]/10 py-3 sm:py-4">
+                    <div className="text-xs sm:text-sm text-[#ff6b35] tracking-wider uppercase mb-1">Tema Audisi</div>
+                    <div className="font-display text-xl sm:text-2xl text-white">"Betah Tinggal di Jakarta"</div>
+                  </div>
+
+                  <div className="border-l-4 border-[#ffd93d] pl-4 sm:pl-6 bg-[#ffd93d]/10 py-3 sm:py-4">
+                    <div className="text-xs sm:text-sm text-[#ffd93d] tracking-wider uppercase mb-1">Tema Grand Final</div>
+                    <div className="font-display text-xl sm:text-2xl text-white">"Jakarta: Panggung Segala Cerita"</div>
+                  </div>
+                </motion.div>
+
+                {/* Grand Final Info */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="border-l-4 border-[#a855f7] pl-4 sm:pl-6 bg-[#a855f7]/10 py-3 sm:py-4"
+                >
+                  <div className="text-xs sm:text-sm text-gray-400 tracking-wider uppercase mb-2">Grand Final</div>
+                  <div className="flex items-center gap-2 text-white text-base sm:text-lg mb-2">
+                    <Calendar size={18} className="text-[#a855f7]" />
+                    <span>Jumat, 19 Desember 2025</span>
+                  </div>
+                  <div className="flex items-center gap-2 text-white text-base sm:text-lg">
+                    <MapPin size={18} className="text-[#a855f7]" />
+                    <span>Taman Ismail Marzuki</span>
+                  </div>
+                </motion.div>
                 
                 <motion.div
                   whileHover={{ x: 10 }}

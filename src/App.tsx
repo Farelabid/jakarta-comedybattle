@@ -7,6 +7,7 @@ import { Venue } from "./components/Venue";
 import { RegistrationForm } from "./components/RegistrationForm";
 import { Footer } from "./components/Footer";
 
+
 export default function App() {
   return (
     <div className="bg-[#0a0e27] min-h-screen">
